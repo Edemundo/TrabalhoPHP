@@ -1,0 +1,11 @@
+*{
+	box-sizing: border-box;
+ }
+
+ #mensagens-erro{
+	color: red;
+}
+
+.invisivel{
+	display: none;
+}

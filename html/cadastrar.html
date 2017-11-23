@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VBC</title>
   <link rel="icon" href="titanis_blindagem.jpg">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
 </head>
@@ -15,10 +17,11 @@
   <article>
         <!-- Form -->
         <nav>
+          <ul id="mensagens-erro"></ul>
           <form name="cadastro" method="post" action="cadastrar.php">
             <div class="field has-addons has-addons-centered">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="Digite seu email" name="email">
+                    <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
                     <span class="icon is-small is-left">
                         <i class="fa fa-envelope"></i>
                     </span>
@@ -29,7 +32,7 @@
             </div>
             <div class="field has-addons has-addons-centered">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="password" placeholder="Digite a senha" name="senha">
+                    <input class="input" id="senha" type="password" placeholder="Digite a senha" name="senha">
                     <span class="icon is-small is-left">
                         <i class="fa fa-lock"></i>
                     </span>
@@ -37,7 +40,7 @@
             </div>
             <div class="field has-addons has-addons-centered">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="password" placeholder="Digite a senha novamente" name="senhanov">
+                    <input class="input" id="senha_novamente" type="password" placeholder="Digite a senha novamente" name="senha_novamente">
                     <span class="icon is-small is-left">
                         <i class="fa fa-lock"></i>
                     </span>
@@ -45,7 +48,7 @@
             </div>
             <div class="field has-addons has-addons-centered">
                 <p class="control">
-                    <button class="button is-success" name="btnCadastro">
+                    <button id="btnCadastro" class="button is-success" name="btnCadastro" >
                         Cadastrar
                     </button>
                 </p>

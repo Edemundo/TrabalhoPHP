@@ -21,6 +21,7 @@ function valoresFormulario(form) {
         senha: form.senha.value,
         senha_novamente: form.senha_novamente
     }
+    console.log(usuario)
     return usuario
 }
 

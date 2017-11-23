@@ -1,4 +1,4 @@
-var botaoCadastrar = document.getElementsById("btnCadastro")
+var botaoCadastrar = document.document.querySelector("#btnCadastro")
 
 botaoAdicionar.addEventListener("click", function (event) {
     event.preventDefault();

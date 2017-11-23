@@ -2,10 +2,10 @@
     $email = $_POST["eemail"];
     $senha = $_POST["senha"];
 
-    md5($senha,)
+    // md5($senha,)
     
-    $query = "insert into clientes (email, senha) values ('{$email}', {$senha})";
-    $conexao = mysqli_connect('localhost', 'root', '', 'loja');
+    $conexao = mysqli_connect('localhost', 'root', '', 'projetocaminhao');
+    $query = "insert into clientes (email, senha) values ('{$email}', '{$senha})";
     
     if(mysqli_query($conexao, $query)) {
     ?>
@@ -14,6 +14,7 @@
     } else {
     ?>
     <p id="sucesso"> Não foi possível cadastrar</p>
+     <?php echo($query)?> 
     <?php
     }
     mysqli_close($conexao);   

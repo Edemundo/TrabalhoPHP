@@ -1,5 +1,5 @@
 <?php
-    $email = $_POST["eemail"];
+    $email = $_POST["email"];
     $senha = $_POST["senha"];
 
     // md5($senha,)
@@ -17,5 +17,4 @@
      <?php echo($query)?> 
     <?php
     }
-    mysqli_close($conexao);   
 ?>

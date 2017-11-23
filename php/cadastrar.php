@@ -2,7 +2,7 @@
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    md5($senha,)
+    // md5($senha,)
     
     $query = "insert into clientes (email, senha) values ('{$email}', {$senha})";
     $conexao = mysqli_connect('localhost', 'root', '', 'loja');

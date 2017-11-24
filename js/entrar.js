@@ -1,4 +1,4 @@
-var botaoLogar = document.querySelector("#login")
+var botaoLogar = document.getElementById("btnEntrar")
 botaoLogar.addEventListener("click", function (event) {
     
     var erros = validaUsuario()

@@ -17,38 +17,39 @@
     <article>
         <!-- Form -->
         <nav>
+            <ul id="mensagens-erro"></ul>
             <form name="cadastro" method="post" action="../php/entrar.php">
-            <div class="field has-addons has-addons-centered">
-                <p class="control has-icons-left has-icons-right">
-                    <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-envelope"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                        <i class="fa fa-check"></i>
-                    </span>
-                </p>
-            </div>
-            <div class="field has-addons has-addons-centered">
-                <p class="control has-icons-left has-icons-right">
+                <div class="field has-addons has-addons-centered">
+                    <p class="control has-icons-left has-icons-right">
+                        <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fa fa-check"></i>
+                        </span>
+                    </p>
+                </div>
+                <div class="field has-addons has-addons-centered">
+                    <p class="control has-icons-left has-icons-right">
                         <input class="input" id="senha" type="password" placeholder="Digite a senha" name="senha">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-lock"></i>
-                    </span>
-                </p>
-            </div>
-            <div class="field has-addons has-addons-centered">
-                <p class="control">
-                    <button id="btnEntrar" class="button is-success" name="btnEntrar" >
-                        Login
-                    </button>
-                </p>
-            </div>
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </p>
+                </div>
+                <div class="field has-addons has-addons-centered">
+                    <p class="control">
+                        <button id="btnEntrar" class="button is-success" name="btnEntrar">
+                            Login
+                        </button>
+                    </p>
+                </div>
+            </form>
         </nav>
     </article>
-    <footer>
-        <script src="../js/footer.js"></script>
-    </footer>
+
+    <script src="../js/footer.js"></script>
     <script src="../js/entrar.js"></script>
 </body>
 

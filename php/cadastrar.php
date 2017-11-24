@@ -10,7 +10,7 @@
 
     $email = mysqli_real_escape_string($conexao, $email);
 	$senha = mysqli_real_escape_string($conexao, $senha);
-    $queryVerificar = "SELECT * FROM clientes WHERE email = '$email'"
+    $queryVerificar = "SELECT * FROM clientes WHERE email = '$email'";
     $resultado = mysqli_query($conexao, $queryVerificar);
     $checar_resultado = mysqli_num_rows($resultado);
 

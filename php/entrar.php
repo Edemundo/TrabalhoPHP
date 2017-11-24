@@ -1,19 +1,7 @@
 <?php
-<<<<<<< HEAD
     $email = $_POST["email"];
     $senha = md5($_POST["senha"]);
     $query = mysqli_query($conexao, "select (email, senha) from clientes where email = ('{$email}')";
-=======
-   include 'conexao.php';
-   
-   $email = $_POST["email"];
-   $senha = md5($_POST["senha"]);
-
-    $email = mysqli_real_escape_string($conexao, $email);
-	$senha = mysqli_real_escape_string($conexao, $senha);
-
-    $query = "select * from clientes where email = '$email'";
->>>>>>> af9accd068710d7e0495b0628faf06b406d2eaa1
     $conexao = mysqli_connect('localhost', 'root', '', 'loja');
 
     if(empty($email) || empty($senha)){

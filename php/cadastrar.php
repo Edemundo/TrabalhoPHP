@@ -5,8 +5,8 @@
 	require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
 
 
-    $email = $_POST["email"];
-    $senha = md5($_POST["senha"]);
+    $email = trim($_POST["email"]);
+    $senha = md5(trim($_POST["senha"]));
 
     $email = mysqli_real_escape_string($conexao, $email);
 	$senha = mysqli_real_escape_string($conexao, $senha);

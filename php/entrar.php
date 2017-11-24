@@ -35,7 +35,7 @@
                 }
                 elseif ($senha == $row['senha']) 
                 {
-                    $_SESSION['u_email'] = $row['email'];
+                    $_SESSION['email'] = $row['email'];
 
                     header("Location: ../html/index.html?login=sucesso");
                     exit();

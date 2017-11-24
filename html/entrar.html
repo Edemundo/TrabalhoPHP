@@ -15,9 +15,10 @@
     <article>
         <!-- Form -->
         <nav>
+            <form name="cadastro" method="post" action="../php/entrar.php">
             <div class="field has-addons has-addons-centered">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="Email">
+                    <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
                     <span class="icon is-small is-left">
                         <i class="fa fa-envelope"></i>
                     </span>
@@ -28,7 +29,7 @@
             </div>
             <div class="field has-addons has-addons-centered">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="password" placeholder="Password">
+                        <input class="input" id="senha" type="password" placeholder="Digite a senha" name="senha">
                     <span class="icon is-small is-left">
                         <i class="fa fa-lock"></i>
                     </span>
@@ -36,21 +37,15 @@
             </div>
             <div class="field has-addons has-addons-centered">
                 <p class="control">
-                    <button class="button is-success">
+                    <button id="btnEntrar" class="button is-success" name="btnEntrar" >
                         Login
                     </button>
                 </p>
             </div>
         </nav>
     </article>
-    <footer class="footer">
-        <div class="container">
-            <div class="content has-text-left is-botton">
-                <p>
-                    <strong>Venda Bem Caminhoneiro</strong> por Thales Vinicius e Victor Martins</a>.
-                </p>
-            </div>
-        </div>
+    <footer>
+        <script> src="../js/footer.js"</script>
     </footer>
 </body>
 

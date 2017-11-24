@@ -1,7 +1,7 @@
 <?php
-    $email = $_POST["eemail"];
+    $email = $_POST["email"];
     $senha = $_POST["senha"];
-    $query = mysqli_query($conexao, "select (email, senha) from clientes where (email) = ('{$email}') and senha =({$senha})";
+    $query = mysqli_query($conexao, "select (email, senha) from clientes where email = ('{$email}')";
     $conexao = mysqli_connect('localhost', 'root', '', 'loja');
     if(mysqli_query($conexao, $query))
 ?>

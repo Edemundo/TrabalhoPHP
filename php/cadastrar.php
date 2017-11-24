@@ -6,7 +6,7 @@
 
 
     $email = $_POST["email"];
-    $senha = $_POST["senha"];
+    $senha = md5($_POST["senha"]);
 
     $email = mysqli_real_escape_string($conexao, $email);
 	$senha = mysqli_real_escape_string($conexao, $senha);

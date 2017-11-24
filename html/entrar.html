@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VBC</title>
     <link rel="icon" href="titanis_blindagem.jpg">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
 </head>
@@ -15,32 +17,35 @@
     <article>
         <!-- Form -->
         <nav>
-            <div class="field has-addons has-addons-centered">
-                <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="Email">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-envelope"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                        <i class="fa fa-check"></i>
-                    </span>
-                </p>
-            </div>
-            <div class="field has-addons has-addons-centered">
-                <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="password" placeholder="Password">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-lock"></i>
-                    </span>
-                </p>
-            </div>
-            <div class="field has-addons has-addons-centered">
-                <p class="control">
-                    <button class="button is-success">
-                        Login
-                    </button>
-                </p>
-            </div>
+            <ul id="mensagens-erro"></ul>
+            <form id="entrar" name="entrar" method="post" action="../php/entrar.php">
+                <div class="field has-addons has-addons-centered">
+                    <p class="control has-icons-left has-icons-right">
+                        <input id="email" class="input" type="email" placeholder="Email">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fa fa-check"></i>
+                        </span>
+                    </p>
+                </div>
+                <div class="field has-addons has-addons-centered">
+                    <p class="control has-icons-left has-icons-right">
+                        <input id="senha" class="input" type="password" placeholder="Password">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </p>
+                </div>
+                <div class="field has-addons has-addons-centered">
+                    <p class="control">
+                        <button class="button is-success" id="login">
+                            Login
+                        </button>
+                    </p>
+                </div>
+            </form>
         </nav>
     </article>
     <footer class="footer">
@@ -52,6 +57,7 @@
             </div>
         </div>
     </footer>
+    <script src="../js/entrar.js"></script>
 </body>
 
 </html>

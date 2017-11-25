@@ -49,7 +49,6 @@
         </nav>
         <?php
         if(isset($_POST["btnCadastro"])){
-
             include '../php/conexao.php';
 
             require_once '../php/conexao.php';	//inclui a conexao com o banco de dados

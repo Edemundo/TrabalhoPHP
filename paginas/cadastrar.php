@@ -80,7 +80,7 @@
         }
         else
     ?>
-          <h1></h1>
+          <h1>Cadastrado com sucesso</h1>
     <?php
         $query = "insert into clientes (email, senha) values ('$email', '$senha')";
         mysqli_query($conexao, $query);

@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
     <title>Venda Bem Caminhoneiro</title>
     <link rel="icon" href="../images/titanis_blindagem.jpg">
     <link rel="stylesheet" href="../css/reset.css">
@@ -52,7 +52,7 @@
             </form>
         </nav>
         <?php
-        if(isset($_POST["btnCadastro"])){
+        if(isset($_POST["btnEntrar"]) ){
             include '../php/conexao.php';
 
             require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
@@ -85,7 +85,7 @@
                     elseif ($senha == $row['senha']) 
                     {
                         ?>
-
+                            <h2 class="subtitle level-item">Bem-vindo <?php echo($row['email']) ?></h2>
                         <?php
                         $_SESSION['email'] = $row['email'];
                     }

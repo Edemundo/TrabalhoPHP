@@ -3,10 +3,10 @@ document.write(`<header>
       <div class="hero-body">
         <div id="navbarMenuHeroA" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item" href="index.html">
+            <a class="navbar-item" href="index.php">
               Principal
             </a>
-            <a class="navbar-item" href="produto.html">
+            <a class="navbar-item" href="produto.php">
               Produtos
             </a>
             <a class="navbar-item" href="cadastrar.php">

@@ -6,7 +6,7 @@ document.write(`<header>
             <a class="navbar-item" href="index.html">
               Principal
             </a>
-            <a class="navbar-item" href="produto.php">
+            <a class="navbar-item" href="produto.html">
               Produtos
             </a>
             <a class="navbar-item" href="cadastrar.php">

@@ -27,7 +27,7 @@
     <br>
     <nav class="level">
         <div class="level-item">
-            <form id="cadastro" method="post" action="cadastroCaminhao.php">
+            <form id="cadastro" method="post" action="cadastrarCaminhao.php">
                 <label class="label">Nome do modelo: </label>
                 <div class="control">
                     <input id="nome" class="input" type="text" placeholder="Modelo" name="modelo">
@@ -45,6 +45,7 @@
                 <div class="control">
                     <input id="preco" class="input" type="text" placeholder="Preço" name="preco">
                 </div>
+                <label class="label">Quantidade do caminhão: </label>                
                 <div class="control">
                     <input id="qtd" class="input" type="text" placeholder="Quantidade" name="qtd">
                 </div>
@@ -68,10 +69,10 @@
 
 
         $modelo = trim($_POST["modelo"]);
-        $montadora = trim($_POST["senha"]);
-        $categoria = trim($_POST["categoria"] ;
-        $preco = trim($_POST["preco"];
-        $quantidade = = trim($_POST["qtd"];
+        $montadora = trim($_POST["montadora"]);
+        $categoria = trim($_POST["categoria"]);
+        $preco = trim($_POST["preco"]);
+        $quantidade = trim($_POST["qtd"]);
 
         $mondelo = mysqli_real_escape_string($conexao, $modelo);
         $montadora = mysqli_real_escape_string($conexao, $montadora);
@@ -91,17 +92,24 @@
             // query para pegar a quantidade desse determinado caminhao que ja tem no banco de dados
             $queryQtde = "SELECT quantidade FROM caminhoes WHERE modelo = '$modelo'";
             mysqli_query($conexao, $queryQtde);
+            $resultado = mysqli_query($conexao, $queryQtde);
+            $row = mysqli_fetch_assoc($resultado);
+            $qtd = $row['quantidade'];
+            intval($qtd);
+            $qtd = $quantidade + $qtd;
+            $queryDelete = "DELETE * FROM caminhoes WHERE modelo = '$modelo'";
+            mysqli_query($conexao, $queryDelete);
 
-            $quantidade = $quantidade + $queryQtde;
-            $query = "insert into caminhoes (quantidade) values ('$quantidade')";
+            $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade)
+                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$qtd')";
             mysqli_query($conexao, $query);
         }
         else{
         ?>
           <h2 class="subtitle level-item">Cadastrado com sucesso!</h2>
         <?php
-         $query = "insert into caminhoes (modelo, montadora, categoria, preco, quantidade)
-                     values ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade')";
+         $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade)
+                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade')";
          mysqli_query($conexao, $query);
         }
       }

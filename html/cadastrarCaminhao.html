@@ -15,49 +15,50 @@
 <body>
     <script src="../js/header.js"></script>
     <div class="container">
+        <br>
         <h2 class="subtitle level-item">Cadastrar Produtos</h2>
     </div>
     <ul id="mensagens-erro"></ul>
     <br>
     <br>
-    <form id="cadastro" method="post" action="cadastroCaminhao.php">
-        <div class="field has-addons has-addons-centered">
-            <div class="field">
+    <nav class="level">
+        <div class="level-item">
+            <form id="cadastro" method="post" action="cadastroCaminhao.php">
+
                 <label class="label">Nome do modelo: </label>
                 <div class="control">
                     <input id="nome" class="input" type="text" placeholder="Modelo">
                 </div>
-            </div>
-        </div>
 
-        <div class="field has-addons has-addons-centered">
-            <div class="field">
                 <label class="label">Nome da montadora: </label>
                 <div class="control">
                     <input id="montadora" class="input" type="text" placeholder="Montadora">
                 </div>
-            </div>
-        </div>
-        <div class="field has-addons has-addons-centered">
-            <div class="field">
+
                 <label class="label">Categoria do caminhão: </label>
                 <div class="control">
                     <input id="categoria" class="input" type="text" placeholder="Categoria">
                 </div>
-            </div>
-        </div>
-        <div class="field has-addons has-addons-centered">
-            <div class="field">
+
                 <label class="label">Preço do caminhão: </label>
                 <div class="control">
                     <input id="preco" class="input" type="text" placeholder="Preço">
                 </div>
-            </div>
+                <br>
+                <div class="field has-addons has-addons-centered">
+                    <p class="control">
+                        <button id="btnCadastro" class="button is-success" name="btnCadastro">
+                            Cadastrar
+                        </button>
+                    </p>
+                </div>
+            </form>
         </div>
-    </form>
+    </nav>
     </div>
 
     <script src="../js/footer.js"></script>
+    <script src="../js/cadastrarCaminhao.js"></script>
 </body>
 
 </html>

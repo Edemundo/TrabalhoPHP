@@ -30,25 +30,28 @@
             <form id="cadastro" method="post" action="cadastroCaminhao.php">
                 <label class="label">Nome do modelo: </label>
                 <div class="control">
-                    <input id="nome" class="input" type="text" placeholder="Modelo">
+                    <input id="nome" class="input" type="text" placeholder="Modelo" name="modelo">
                 </div>
 
                 <label class="label">Nome da montadora: </label>
                 <div class="control">
-                    <input id="montadora" class="input" type="text" placeholder="Montadora">
+                    <input id="montadora" class="input" type="text" placeholder="Montadora" name="montadora">
                 </div>
                 <label class="label">Categoria do caminhão: </label>
                 <div class="control">
-                    <input id="categoria" class="input" type="text" placeholder="Categoria">
+                    <input id="categoria" class="input" type="text" placeholder="Categoria" name="categoria">
                 </div>
                 <label class="label">Preço do caminhão: </label>
                 <div class="control">
-                    <input id="preco" class="input" type="text" placeholder="Preço">
+                    <input id="preco" class="input" type="text" placeholder="Preço" name="preco">
+                </div>
+                <div class="control">
+                    <input id="qtd" class="input" type="text" placeholder="Quantidade" name="qtd">
                 </div>
                 <br>
                 <div class="field has-addons has-addons-centered">
                     <p class="control">
-                        <button id="btnCadastro" class="button is-success" name="btnCadastro">
+                        <button id="btnCadastro" class="button is-success" name="btnCadastroCaminhao">
                             Cadastrar
                         </button>
                     </p>
@@ -57,6 +60,52 @@
             </form>
         </div>
     </nav>
+    <?php
+      if(isset($_POST["btnCadastroCaminhao"])){
+        include '../php/conexao.php';
+
+        require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
+
+
+        $modelo = trim($_POST["modelo"]);
+        $montadora = trim($_POST["senha"]);
+        $categoria = trim($_POST["categoria"];
+        $preco = trim($_POST["preco"];
+        $quantidade = = trim($_POST["qtd"];
+
+        $mondelo = mysqli_real_escape_string($conexao, $modelo);
+        $montadora = mysqli_real_escape_string($conexao, $montadora);
+        $categoria = mysqli_real_escape_string($conexao, $categoria);
+        $preco = mysqli_real_escape_string($conexao, $preco);
+        $quantidade = mysqli_real_escape_string($conexao, $quantidade);
+
+        $queryVerificar = "SELECT * FROM caminhoes WHERE modelo = '$modelo'";
+        $resultado = mysqli_query($conexao, $queryVerificar);
+        $checar_resultado = mysqli_num_rows($resultado);
+
+        if($checar_resultado > 0)
+        {
+          ?>
+            <h2 class="subtitle level-item">Caminhão já está cadastrado, inserindo a quantidade ao banco de dados</h2>
+          <?php
+            // query para pegar a quantidade desse determinado caminhao que ja tem no banco de dados
+            $queryQtde = "SELECT quantidade FROM caminhoes WHERE modelo = '$modelo'";
+            mysqli_query($conexao, $queryQtde);
+
+            $quantidade = $quantidade + $queryQtde;
+            $query = "insert into caminhoes (quantidade) values ('$quantidade')";
+            mysqli_query($conexao, $query);
+        }
+        else{
+        ?>
+          <h2 class="subtitle level-item">Cadastrado com sucesso!</h2>
+        <?php
+         $query = "insert into caminhoes (modelo, montadora, categoria, preco, quantidade)
+                     values ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade')";
+         mysqli_query($conexao, $query);
+        }
+      }
+    ?>
 
     <script src="../js/footer.js"></script>
     <script src="../js/cadastrarCaminhao.js"></script>

@@ -75,7 +75,6 @@
             else
             {
                 if ($row = mysqli_fetch_assoc($resultado)) {
-
                     if ($senha != $row['senha']) 
                     {
                     ?>

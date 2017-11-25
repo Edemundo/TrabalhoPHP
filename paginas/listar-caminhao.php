@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +26,7 @@
         <h2 class="subtitle level-item">Listar caminhões</h2>
     </div>
 
-    
+
 
   <script src="../js/footer.js"></script>
 </body>

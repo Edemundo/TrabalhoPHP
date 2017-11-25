@@ -87,7 +87,7 @@
         if($checar_resultado > 0)
         {
           ?>
-            <h2 class="subtitle level-item">Caminhão já está cadastrado, inserindo a quantidade ao banco de dados</h2>
+            <h2 class="subtitle level-item">Caminhão já está cadastrado</h2>
           <?php
             // query para pegar a quantidade desse determinado caminhao que ja tem no banco de dados
             $queryQtde = "SELECT quantidade FROM caminhoes WHERE modelo = '$modelo'";
@@ -95,8 +95,8 @@
             $resultado = mysqli_query($conexao, $queryQtde);
             $row = mysqli_fetch_assoc($resultado);
             $qtd = $row['quantidade'];
-            intval($qtd);
-            $qtd = $quantidade + $qtd;
+            $qtd = intval($qtd) + intval($quantidade);
+
             $queryDelete = "DELETE * FROM caminhoes WHERE modelo = '$modelo'";
             mysqli_query($conexao, $queryDelete);
 

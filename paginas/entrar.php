@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" >
-    <title>Venda Bem Caminhoneiro</title>
+    <title>Entrar</title>
     <link rel="icon" href="../images/titanis_blindagem.jpg">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/index.css">

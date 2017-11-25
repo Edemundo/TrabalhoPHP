@@ -6,13 +6,13 @@ document.write(`<header>
             <a class="navbar-item" href="index.html">
               Principal
             </a>
-            <a class="navbar-item" href="produto.html">
+            <a class="navbar-item" href="produto.php">
               Produtos
             </a>
-            <a class="navbar-item" href="cadastrar.html">
+            <a class="navbar-item" href="cadastrar.php">
               Cadastrar
             </a>
-            <a class="navbar-item" href="entrar.html">
+            <a class="navbar-item" href="entrar.php">
               Entrar
             </a>
           </div>

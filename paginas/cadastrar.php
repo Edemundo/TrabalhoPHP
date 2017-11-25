@@ -18,7 +18,7 @@
     <!-- Form -->
     <nav>
       <ul id="mensagens-erro"></ul>
-      <form name="cadastro" method="post" action="../php/cadastrar.php">
+      <form name="cadastro" method="post" action="cadastrar.php">
         <div class="field has-addons has-addons-centered">
           <p class="control has-icons-left has-icons-right">
             <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
@@ -55,6 +55,38 @@
         </div>
       </form>
     </nav>
+    <?php
+      if(isset($_POST["btnCadastro"])){
+        include '../php/conexao.php';
+
+        require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
+
+
+        $email = trim($_POST["email"]);
+        $senha = md5(trim($_POST["senha"]));
+
+        $email = mysqli_real_escape_string($conexao, $email);
+        $senha = mysqli_real_escape_string($conexao, $senha);
+        $queryVerificar = "SELECT * FROM clientes WHERE email = '$email'";
+        $resultado = mysqli_query($conexao, $queryVerificar);
+        $checar_resultado = mysqli_num_rows($resultado);
+
+        if($checar_resultado > 0)
+        {
+    ?>
+            <h1>Usuário já cadastrado</h1>
+    <?php
+            return;
+        }
+        else
+    ?>
+          <h1></h1>
+    <?php
+        $query = "insert into clientes (email, senha) values ('$email', '$senha')";
+        mysqli_query($conexao, $query);
+        exit();
+      }
+    ?>
   </article>
   <script src="../js/footer.js"></script>
   <script src="../js/cadastro.js"></script>

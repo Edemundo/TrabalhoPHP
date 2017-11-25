@@ -84,7 +84,12 @@
                     }
                     else if ($senha == $row['senha']) 
                     {
+                        ?>
+                            <h2 class="subtitle level-item">Bem-vindo <?php echo($row['email']) ?>!</h2>
+                        <?php
                         $_SESSION['email'] = $row['email'];
+                        ?>
+                        <?php
                     }
                 }
             }

@@ -26,7 +26,7 @@ function validaUsuario() {
         erros.push("A categoria precisa ser preenchida")
     if(document.getElementById("preco").value.length == 0)
         erros.push("O preço precisa ser preenchido")
-    if(document.getElementById("preco").value.length < 9)
+    if(document.getElementById("preco").value.length < 6)
         erros.push("O preço precisa ter no mínimo 6 números")
     return erros
 }

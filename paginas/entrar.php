@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" >
-    <title>Venda Bem Caminhoneiro</title>
+    <title>Entrar</title>
     <link rel="icon" href="../images/titanis_blindagem.jpg">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/index.css">
@@ -22,7 +22,7 @@
         <!-- Form -->
         <nav>
             <ul id="mensagens-erro"></ul>
-            <form name="cadastro" method="post" action="entrar.php">
+            <form name="cadastro" method="post" action="../php/entrar.php">
                 <div class="field has-addons has-addons-centered">
                     <p class="control has-icons-left has-icons-right">
                         <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
@@ -63,7 +63,7 @@
             $email = mysqli_real_escape_string($conexao, $email);
             $senha = mysqli_real_escape_string($conexao, $senha);
 
-            $queryConsulta = "SELECT * FROM clientes WHERE email = '$email'";
+            $queryConsulta = "SELECT * FROM usuarios WHERE email = '$email'";
             $resultado = mysqli_query($conexao, $queryConsulta);
             $checarResultado = mysqli_num_rows($resultado);
             if($checarResultado < 1)
@@ -78,11 +78,14 @@
                     if ($senha != $row['senha']) 
                     {
                     ?>
-                    <h2 class="subtitle level-item">Senha incorreta!</h2>
+                <h2 class="subtitle level-item">Senha incorreta!</h2>
                 <?php
                     }
-                    else if ($senha == $row['senha']) 
+                    elseif ($senha == $row['senha']) 
                     {
+                        ?>
+                            <h2 class="subtitle level-item">Bem-vindo <?php echo($row['email']) ?></h2>
+                        <?php
                         $_SESSION['email'] = $row['email'];
                     }
                 }

@@ -63,7 +63,7 @@
             $email = mysqli_real_escape_string($conexao, $email);
             $senha = mysqli_real_escape_string($conexao, $senha);
 
-            $queryConsulta = "SELECT * FROM usuarios WHERE email = '$email'";
+            $queryConsulta = "SELECT * FROM clientes WHERE email = '$email'";
             $resultado = mysqli_query($conexao, $queryConsulta);
             $checarResultado = mysqli_num_rows($resultado);
             if($checarResultado < 1)

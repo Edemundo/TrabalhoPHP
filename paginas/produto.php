@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['email'])){
+      echo "Você não está logado";
+  }
+  else {
+      echo "Você está logado";
+  }
+?>
 <!DOCTYPE html>
 <html>
 

@@ -52,7 +52,7 @@
             </form>
         </nav>
         <?php
-        if(isset($_POST["btnCadastro"])){
+        if(isset($_POST["btnEntrar"])){
             include '../php/conexao.php';
 
             require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
@@ -79,14 +79,11 @@
                     if ($senha != $row['senha']) 
                     {
                     ?>
-                <h2 class="subtitle level-item">Senha incorreta!</h2>
+                    <h2 class="subtitle level-item">Senha incorreta!</h2>
                 <?php
                     }
                     else if ($senha == $row['senha']) 
                     {
-                        ?>
-                            <h2 class="subtitle level-item">Olá <?php echo($row["email"]) ?></h2>
-                        <?php
                         $_SESSION['email'] = $row['email'];
                     }
                 }

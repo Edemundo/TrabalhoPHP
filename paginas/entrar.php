@@ -48,6 +48,7 @@
             </form>
         </nav>
         <?php
+        if(isset($_POST["btnCadastro"])){
 
             include '../php/conexao.php';
 
@@ -58,15 +59,15 @@
 
             $email = mysqli_real_escape_string($conexao, $email);
             $senha = mysqli_real_escape_string($conexao, $senha);
-                        
+
             $queryConsulta = "SELECT * FROM usuarios WHERE email = '$email'";
             $resultado = mysqli_query($conexao, $queryConsulta);
             $checarResultado = mysqli_num_rows($resultado);
             if($checarResultado < 1)
             {
                 ?>
-                <h2 class="subtitle level-item">Usuário não cadastrado!</h2>
-                <?php
+            <h2 class="subtitle level-item">Usuário não cadastrado!</h2>
+            <?php
             }
             else
             {
@@ -75,8 +76,8 @@
                     if ($senha != $row['senha']) 
                     {
                     ?>
-                        <h2 class="subtitle level-item">Senha incorreta!</h2>
-                    <?php
+                <h2 class="subtitle level-item">Senha incorreta!</h2>
+                <?php
                     }
                     elseif ($senha == $row['senha']) 
                     {
@@ -84,6 +85,7 @@
                     }
                 }
             }
+        }
         ?>
     </article>
 

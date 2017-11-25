@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+</head>
+
+<body>
+    <script src="../js/header.js"></script>
+    <div class="container">
+        <h2 class="subtitle level-item">Cadastrar Produtos</h2>
+    </div>
+    <ul id="mensagens-erro"></ul>
+    <br>
+    <br>
+    <form id="cadastro" method="post" action="cadastroCaminhao.php">
+        <div class="field has-addons has-addons-centered">
+            <div class="field">
+                <label class="label">Nome do modelo: </label>
+                <div class="control">
+                    <input id="nome" class="input" type="text" placeholder="Modelo">
+                </div>
+            </div>
+        </div>
+
+        <div class="field has-addons has-addons-centered">
+            <div class="field">
+                <label class="label">Nome da montadora: </label>
+                <div class="control">
+                    <input id="montadora" class="input" type="text" placeholder="Montadora">
+                </div>
+            </div>
+        </div>
+        <div class="field has-addons has-addons-centered">
+            <div class="field">
+                <label class="label">Categoria do caminhão: </label>
+                <div class="control">
+                    <input id="categoria" class="input" type="text" placeholder="Categoria">
+                </div>
+            </div>
+        </div>
+        <div class="field has-addons has-addons-centered">
+            <div class="field">
+                <label class="label">Preço do caminhão: </label>
+                <div class="control">
+                    <input id="preco" class="input" type="text" placeholder="Preço">
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <script src="../js/footer.js"></script>
+</body>
+
+</html>

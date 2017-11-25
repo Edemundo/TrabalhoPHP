@@ -48,9 +48,10 @@
             </form>
         </nav>
         <?php
+        if(isset($_POST["btnEntrar"])){
             $email = $_POST["email"];
             $senha = md5($_POST["senha"]);
-            $query = mysqli_query($conexao, "select (email, senha) from clientes where email = ('{$email}')";
+            $query = mysqli_query($conexao, "select (email, senha) from clientes where email = ('{$email}')");
             $conexao = mysqli_connect('localhost', 'root', '', 'loja');
 
             $queryConsulta = "SELECT * FROM usuarios WHERE ds_usuario = '$email'";
@@ -78,6 +79,7 @@
                     }
                 }
             }
+        }
         ?>
     </article>
 

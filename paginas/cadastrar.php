@@ -73,19 +73,13 @@
 
         if($checar_resultado > 0)
         {
-    ?>
-            <h2 class="subtitle level-item">Usuário já cadastrado!</h2>
-    <?php
+            echo ("Usuário já cadastrado!");
             return;
         }
         else
-    ?>
-      <h2 class="subtitle level-item">Cadastrado com sucesso!</h2>
-          
-    <?php
+          echo ("Cadastrado com Sucesso");
         $query = "insert into clientes (email, senha) values ('$email', '$senha')";
         mysqli_query($conexao, $query);
-        // exit();
       }
     ?>
   </article>

@@ -48,20 +48,26 @@
             </form>
         </nav>
         <?php
-        if(isset($_POST["btnEntrar"])){
+        if(isset($_POST["btnCadastro"])){
+
+            include '../php/conexao.php';
+
+            require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
             $email = $_POST["email"];
             $senha = md5($_POST["senha"]);
-            $query = mysqli_query($conexao, "select (email, senha) from clientes where email = ('{$email}')");
-            $conexao = mysqli_connect('localhost', 'root', '', 'loja');
 
-            $queryConsulta = "SELECT * FROM usuarios WHERE ds_usuario = '$email'";
+
+            $email = mysqli_real_escape_string($conexao, $email);
+            $senha = mysqli_real_escape_string($conexao, $senha);
+
+            $queryConsulta = "SELECT * FROM usuarios WHERE email = '$email'";
             $resultado = mysqli_query($conexao, $queryConsulta);
             $checarResultado = mysqli_num_rows($resultado);
             if($checarResultado < 1)
             {
                 ?>
-                <h2 class="subtitle level-item">Usuário não cadastrado!</h2>
-                <?php
+            <h2 class="subtitle level-item">Usuário não cadastrado!</h2>
+            <?php
             }
             else
             {
@@ -70,8 +76,8 @@
                     if ($senha != $row['senha']) 
                     {
                     ?>
-                        <h2 class="subtitle level-item">Senha incorreta!</h2>
-                    <?php
+                <h2 class="subtitle level-item">Senha incorreta!</h2>
+                <?php
                     }
                     elseif ($senha == $row['senha']) 
                     {

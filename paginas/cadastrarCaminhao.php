@@ -69,7 +69,7 @@
 
         $modelo = trim($_POST["modelo"]);
         $montadora = trim($_POST["senha"]);
-        $categoria = trim($_POST["categoria"];
+        $categoria = trim($_POST["categoria"] ;
         $preco = trim($_POST["preco"];
         $quantidade = = trim($_POST["qtd"];
 

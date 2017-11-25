@@ -74,13 +74,13 @@
         if($checar_resultado > 0)
         {
     ?>
-            <h1>Usuário já cadastrado</h1>
+            <h1>Usuário já cadastrado!</h1>
     <?php
             return;
         }
         else
     ?>
-          <h1>Cadastrado com sucesso</h1>
+          <h1>Cadastrado com sucesso!</h1>
     <?php
         $query = "insert into clientes (email, senha) values ('$email', '$senha')";
         mysqli_query($conexao, $query);

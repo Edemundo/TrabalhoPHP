@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +22,7 @@
         <!-- Form -->
         <nav>
             <ul id="mensagens-erro"></ul>
-            <form name="cadastro" method="post" action="../php/entrar.php">
+            <form name="cadastro" method="post" action="entrar.php">
                 <div class="field has-addons has-addons-centered">
                     <p class="control has-icons-left has-icons-right">
                         <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
@@ -78,8 +82,11 @@
                 <h2 class="subtitle level-item">Senha incorreta!</h2>
                 <?php
                     }
-                    elseif ($senha == $row['senha']) 
+                    else if ($senha == $row['senha']) 
                     {
+                        ?>
+                            <h2 class="subtitle level-item">Olá <?php echo($row["email"]) ?></h2>
+                        <?php
                         $_SESSION['email'] = $row['email'];
                     }
                 }

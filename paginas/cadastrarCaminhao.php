@@ -89,20 +89,6 @@
           ?>
             <h2 class="subtitle level-item">Caminhão já está cadastrado</h2>
           <?php
-            // query para pegar a quantidade desse determinado caminhao que ja tem no banco de dados
-            $queryQtde = "SELECT quantidade FROM caminhoes WHERE modelo = '$modelo'";
-            mysqli_query($conexao, $queryQtde);
-            $resultado = mysqli_query($conexao, $queryQtde);
-            $row = mysqli_fetch_assoc($resultado);
-            $qtd = $row['quantidade'];
-            $qtd = intval($qtd) + intval($quantidade);
-
-            $queryDelete = "DELETE * FROM caminhoes WHERE modelo = '$modelo'";
-            mysqli_query($conexao, $queryDelete);
-
-            $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade)
-                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$qtd')";
-            mysqli_query($conexao, $query);
         }
         else{
         ?>

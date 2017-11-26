@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +20,14 @@
       crossorigin="anonymous"></script>
 </head>
 <body>
-        <script src="../js/header.js"></script>
-    
+  <script src="../js/header.js"></script>
+  <div class="container">
+        <br>
+        <h2 class="subtitle level-item">Listar caminhões</h2>
+    </div>
+
+
+
+  <script src="../js/footer.js"></script>
 </body>
 </html>

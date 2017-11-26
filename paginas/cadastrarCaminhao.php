@@ -74,7 +74,7 @@
         $preco = trim($_POST["preco"]);
         $quantidade = trim($_POST["qtd"]);
 
-        $mondelo = mysqli_real_escape_string($conexao, $modelo);
+        $modelo = mysqli_real_escape_string($conexao, $modelo);
         $montadora = mysqli_real_escape_string($conexao, $montadora);
         $categoria = mysqli_real_escape_string($conexao, $categoria);
         $preco = mysqli_real_escape_string($conexao, $preco);

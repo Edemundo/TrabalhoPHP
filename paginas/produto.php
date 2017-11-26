@@ -47,6 +47,7 @@
     require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
     $queryConsulta = "SELECT * FROM caminhoes";
     $quantidade = mysqli_num_rows($queryConsulta);
+    echo($quantidade);
     $resultado = mysqli_query($conexao, $queryConsulta);
     $row = mysqli_fetch_assoc($resultado);
       for($i = 0; $i < $quantidade; $i++)

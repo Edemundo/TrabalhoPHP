@@ -48,6 +48,7 @@
     $queryConsulta = "SELECT * FROM caminhoes";
     $resultado = mysqli_query($conexao, $queryConsulta);
     $quantidade = mysqli_num_rows($resultado);
+<<<<<<< HEAD
     for($i = 1; $i < $quantidade + 1; $i++)
     {
       $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
@@ -66,10 +67,27 @@
           <p class="card-text">Preço: <?php echo($row['preco']) ?></p>
               <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
             </div>
+=======
+    $row = mysqli_fetch_assoc($resultado);
+
+    for($i = 1; $i <= $quantidade; $i++)
+    {
+      $queryConsultaId = "SELECT * FROM caminhoes WHERE id = '$i'";
+      $resultado = mysqli_query($conexao, $queryConsulta);
+      $quantidade = mysqli_num_rows($resultado);
+      $row = mysqli_fetch_assoc($resultado);
+      ?>
+        <div class="col-sm-6">
+          <div class="card" style="width: 20rem;">
+          
+            <img class="card-img-top" src=<?php $row['imagem']?> alt=<?php $row['modelo']?>>
+            <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+>>>>>>> 55fe82107ef3c9b8ac30127ad980ab403464d00d
           </div>
-        <?php
-        
-      }
+        </div>
+      <?php
+      
+    }
     ?>
     <!-- <div class="col-sm-6">
       <div class="card" style="width: 20rem;">

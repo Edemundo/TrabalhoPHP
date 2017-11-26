@@ -49,6 +49,15 @@
                     <div class="control">
                         <input id="qtd" class="input" type="text" placeholder="Quantidade" name="qtd">
                     </div>
+                    <label class="label">Imagem do caminhão: </label>
+                    <div class="control">
+                    <form action="cadastrarCaminhao.php" method="post" enctype="multipart/form-data">
+                        <label class="custom-file">
+                            <input type="file" id="file" class="custom-file-input" name="img">
+                            <span class="custom-file-control"></span>
+                        </label>
+                    </form>
+                    <br>
                     <br>
                     <div class="field has-addons has-addons-centered">
                         <p class="control">
@@ -56,6 +65,7 @@
                                 Cadastrar
                             </button>
                         </p>
+                    </div>
                     </div>
 
                 </form>

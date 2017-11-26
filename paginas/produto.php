@@ -28,19 +28,41 @@
     </div>
     <br>
     <br>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-sm-6">
       <div class="card" style="width: 20rem;">
         <img class="card-img-top" src="../images/1.jpg" alt="Venda Bem Caminhoneiro">
         <div class="card-block">
-          <h3 class="card-title"><?php modelo que ta no bd ?></h3>
+          <h3 class="card-title"></h3>
           <p class="card-text">Categoria: Semipesado</p>
           <p class="card-text">Preço: R$ 150.055,00</p>
           <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6">
+    </div> -->
+
+    <?php
+    include '../php/conexao.php';
+    
+    require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
+    $queryConsulta = "SELECT * FROM caminhoes";
+    $quantidade = mysqli_num_rows($queryConsulta);
+    $resultado = mysqli_query($conexao, $queryConsulta);
+    $row = mysqli_fetch_assoc($resultado);
+      for($i = 0; $i < $quantidade; $i++)
+      {
+        ?>
+          <div class="col-sm-6">
+            <div class="card" style="width: 20rem;">
+              <img class="card-img-top" src=<?php $row['imagem']?> alt=<?php $row['modelo']?>>
+              <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+            </div>
+          </div>
+        <?php
+        
+      }
+    ?>
+    <!-- <div class="col-sm-6">
       <div class="card" style="width: 20rem;">
         <img class="card-img-top" src="../images/2.jpg" alt="Venda Bem Caminhoneiro">
         <div class="card-block">
@@ -155,7 +177,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <script src="../js/footer.js"></script>
 </body>
 

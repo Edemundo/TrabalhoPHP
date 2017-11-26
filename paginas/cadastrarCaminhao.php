@@ -87,8 +87,9 @@
         if($checar_resultado > 0)
         {
           ?>
-            <h2 class="subtitle level-item">Caminhão já está cadastrado, inserindo a quantidade ao banco de dados</h2>
+            <h2 class="subtitle level-item">Caminhão já está cadastrado</h2>
           <?php
+<<<<<<< HEAD
             // query para pegar a quantidade desse determinado caminhao que ja tem no banco de dados
             $queryQtde = "SELECT quantidade FROM caminhoes WHERE modelo = '$modelo'";
             mysqli_query($conexao, $queryQtde);
@@ -105,6 +106,8 @@
             $query = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora' , categoria = '$categoria', preco = '$preco', quantidade = '$qtd'";
             echo($query);
             mysqli_query($conexao, $query);
+=======
+>>>>>>> 3467be06322c185a54efa9284ba3a3612cddd9f7
         }
         else{
         ?>

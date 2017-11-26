@@ -19,6 +19,12 @@
 
 <body>
   <script src="../js/header.js"></script>
+  <div class="container">
+        <br>
+        <h2 class="subtitle level-item">Produtos</h2>
+    </div>
+    <br>
+    <br>
   <div class="row">
     <div class="col-sm-6">
       <div class="card" style="width: 20rem;">

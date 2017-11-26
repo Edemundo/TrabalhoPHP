@@ -1,7 +1,6 @@
 <?php
     session_start();
 ?>
-
     <!DOCTYPE html>
     <html>
 
@@ -21,8 +20,12 @@
         <article>
             <!-- Form -->
             <nav>
+                <div class="container">
+                    <br>
+                    <h2 class="subtitle level-item">Alterar Usuário</h2>
+                </div>
                 <ul id="mensagens-erro"></ul>
-                <form name="cadastro" method="post" action="entrar.php">
+                <form name="cadastro" method="post" action="cadastrar.php">
                     <div class="field has-addons has-addons-centered">
                         <p class="control has-icons-left has-icons-right">
                             <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
@@ -43,52 +46,55 @@
                         </p>
                     </div>
                     <div class="field has-addons has-addons-centered">
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" id="senha_novamente" type="password" placeholder="Digite a senha novamente" name="senha_novamente">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field has-addons has-addons-centered">
                         <p class="control">
-                            <button id="btnEntrar" class="button is-success" name="btnAltUser">
-                                Login
+                            <button id="btnCadastro" class="button is-success" name="btnCadastro">
+                                Cadastrar
                             </button>
                         </p>
                     </div>
                 </form>
             </nav>
-        </article>
-        <?php
-
-    //confere se o botao foi clicado
-	//caso nao tenha sido clicado
-	//volta para a pagina principal
-
-	if(isset($_POST['btnAltUser']))		
-    {		
-			//inicio da autenticação do usuário
-        include 'conexao.php';
-
-        require_once 'conexao.php';	//inclui a conexao com o banco de dados
-
-        //transforma tudo em string para não receber sql injection
-        //e nao aceita codigo
-        $senha = trim($_POST['senha']);
-        $email = trim($_POST['email']);
-        
-        $queryConsulta = "SELECT * FROM clientes WHERE email = '$email'";
-        $resultado = mysqli_query($conexao, $queryConsulta);
-        $checarResultado = mysqli_num_rows($resultado);
-        if($checarResultado < 1)
-        {
-            ?>
-                <h2 class="subtitle level-item">Usuário não cadastrado!</h2>
             <?php
-        }
-        else
-        {
-            $queryInserir = "UPDATE clientes SET email = '$email', senha = '$senha'
-            WHERE email = '$email'";
-            mysqli_query($conexao, $queryInserir);
-        }
-    }
-        ?>
-                <script src="../js/footer.js"></script>
-                <script src="../js/entrar.js"></script>
+      if(isset($_POST['btnAltUser']))		
+      {		
+              //inicio da autenticação do usuário
+          include 'conexao.php';
+  
+          require_once 'conexao.php';	//inclui a conexao com o banco de dados
+  
+          //transforma tudo em string para não receber sql injection
+          //e nao aceita codigo
+          $senha = trim($_POST['senha']);
+          $email = trim($_POST['email']);
+          
+          $queryConsulta = "SELECT * FROM clientes WHERE email = '$email'";
+          $resultado = mysqli_query($conexao, $queryConsulta);
+          $checarResultado = mysqli_num_rows($resultado);
+          if($checarResultado < 1)
+          {
+              ?>
+                <h2 class="subtitle level-item">Usuário não cadastrado!</h2>
+                <?php
+          }
+          else
+          {
+              $queryInserir = "UPDATE clientes SET email = '$email', senha = '$senha'
+              WHERE email = '$email'";
+              mysqli_query($conexao, $queryInserir);
+          }
+      }
+    ?>
+        </article>
+        <script src="../js/footer.js"></script>
+        <script src="../js/cadastro.js"></script>
     </body>
 
     </html>

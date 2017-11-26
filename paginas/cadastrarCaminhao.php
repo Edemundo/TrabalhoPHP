@@ -83,12 +83,14 @@
         $categoria = trim($_POST["categoria"]);
         $preco = trim($_POST["preco"]);
         $quantidade = trim($_POST["qtd"]);
+        $img = trim($_POST["img"]);
 
         $modelo = mysqli_real_escape_string($conexao, $modelo);
         $montadora = mysqli_real_escape_string($conexao, $montadora);
         $categoria = mysqli_real_escape_string($conexao, $categoria);
         $preco = mysqli_real_escape_string($conexao, $preco);
         $quantidade = mysqli_real_escape_string($conexao, $quantidade);
+        $img = mysqli_real_escape_string($conexao, $img);
 
         $queryVerificar = "SELECT * FROM caminhoes WHERE modelo = '$modelo'";
         $resultado = mysqli_query($conexao, $queryVerificar);
@@ -104,8 +106,8 @@
         ?>
                 <h2 class="subtitle level-item">Cadastrado com sucesso!</h2>
                 <?php
-         $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade)
-                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade')";
+         $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade, imagem)
+                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade', '$img')";
          mysqli_query($conexao, $query);
         }
       }

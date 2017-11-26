@@ -18,9 +18,7 @@
   <aside>
     <img src="../images/ddd.jpg">
   </aside>
-  <footer>
     <script src="../js/footer.js"></script>
-  </footer>
 </body>
 
 </html>

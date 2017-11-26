@@ -48,13 +48,18 @@
     $queryConsulta = "SELECT * FROM caminhoes";
     $resultado = mysqli_query($conexao, $queryConsulta);
     $quantidade = mysqli_num_rows($resultado);
-    $row = mysqli_fetch_assoc($resultado);
-      for($i = 0; $i < $quantidade; $i++)
-      {
+    for($i = 1; $i < $quantidade; $i++)
+    {
+      $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
+      $resultadoLinha = mysql_query($conexao, $queryLinha);
+      $row = mysqli_fetch_assoc($resultadoLinha);
+      
         ?>
           <div class="col-sm-6">
             <div class="card" style="width: 20rem;">
-              <img class="card-img-top" src=<?php $row['imagem']?> alt=<?php $row['modelo']?>>
+              <?phpecho '<img src="data:image/png;base64,'.base64_encode($row['imagem']]).'"/>'; ?>
+            
+              <img class="card-img-top" src="data:image/jpeg;base64,"<?php base64_encode($row['imagem'])?> alt=<?php $row['modelo']?>>
               <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
             </div>
           </div>

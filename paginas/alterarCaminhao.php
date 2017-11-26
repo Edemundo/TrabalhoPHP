@@ -21,14 +21,14 @@ session_start();
     <article>
         <div class="container">
             <br>
-            <h2 class="subtitle level-item">Cadastrar Produtos</h2>
+            <h2 class="subtitle level-item">Alterar Caminhão</h2>
         </div>
         <ul id="mensagens-erro"></ul>
         <br>
         <br>
         <nav class="level">
             <div class="level-item">
-                <form id="cadastro" method="post" action="cadastrarCaminhao.php">
+                <form id="cadastro" method="post" action="alterarCaminhao.php">
                     <label class="label">Nome do modelo: </label>
                     <div class="control">
                         <input id="nome" class="input" type="text" placeholder="Modelo" name="modelo">
@@ -53,8 +53,8 @@ session_start();
                     <br>
                     <div class="field has-addons has-addons-centered">
                         <p class="control">
-                            <button id="btnCadastro" class="button is-success" name="btnCadastroCaminhao">
-                                Cadastrar
+                            <button id="btnCadastro" class="button is-success" name="btnAlterCaminhao">
+                                Alterar
                             </button>
                         </p>
                     </div>
@@ -66,7 +66,7 @@ session_start();
         <script src="../js/entrar.js"></script>
     </article>
     <?php
-        if(isset($_POST["btnCadastroCaminhao"])){
+        if(isset($_POST["btnAlterCaminhao"])){
         include '../php/conexao.php';
 
         require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
@@ -106,6 +106,9 @@ session_start();
             $queryInserir = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora', 
                 categoria = '$categoria', preco = '$preco', quantidade = '$qtde' WHERE modelo = '$modelo'";
             mysqli_query($conexao, $queryInserir);
+            ?>
+            <h2 class="subtitle level-item">Caminhão alterado com sucesso!</h2>
+            <?php
         }
     }
         ?>

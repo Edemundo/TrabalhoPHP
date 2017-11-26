@@ -29,6 +29,11 @@ session_start();
         <nav class="level">
             <div class="level-item">
                 <form id="cadastro" method="post" action="alterarCaminhao.php">
+                    <label class="label">ID do Caminhão: </label>
+                    ID do Caminhão
+                    <div class="control">
+                        <input id="id" class="input" type="text" placeholder="ID" name="id">
+                    </div>
                     <label class="label">Nome do modelo: </label>
                     <div class="control">
                         <input id="nome" class="input" type="text" placeholder="Modelo" name="modelo">
@@ -53,7 +58,7 @@ session_start();
                     <br>
                     <div class="field has-addons has-addons-centered">
                         <p class="control">
-                            <button id="btnCadastro" class="button is-success" name="btnAlterCaminhao">
+                            <button id="btnAlterCaminhao" class="button is-success" name="btnAlterCaminhao">
                                 Alterar
                             </button>
                         </p>
@@ -71,40 +76,41 @@ session_start();
 
         require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
 
-
+        $id = trim($_POST["id"]);
         $modelo = trim($_POST["modelo"]);
         $montadora = trim($_POST["montadora"]);
         $categoria = trim($_POST["categoria"]);
         $preco = trim($_POST["preco"]);
         $quantidade = trim($_POST["qtd"]);
-
+        
+        $id = mysqli_real_escape_string($conexao, $id);
         $mondelo = mysqli_real_escape_string($conexao, $modelo);
         $montadora = mysqli_real_escape_string($conexao, $montadora);
         $categoria = mysqli_real_escape_string($conexao, $categoria);
         $preco = mysqli_real_escape_string($conexao, $preco);
         $quantidade = mysqli_real_escape_string($conexao, $quantidade);
 
-        $queryVerificar = "SELECT * FROM caminhoes WHERE modelo = '$modelo'";
+        $queryVerificar = "SELECT * FROM caminhoes WHERE id = '$id'";
         $resultado = mysqli_query($conexao, $queryVerificar);
         $checarResultado = mysqli_num_rows($resultado);
 
         if($checarResultado < 1)
         {
     ?>
-            <h2 class="subtitle level-item">Caminhão não cadastrado!</h2>
-            <?php
+        <h2 class="subtitle level-item">Caminhão não cadastrado!</h2>
+        <?php
         }
         else
         {
-            $queryQtde = "SELECT quantidade FROM caminhoes WHERE modelo = '$modelo'";
-            mysqli_query($conexao, $queryQtde);
-            $resultado = mysqli_query($conexao, $queryQtde);
-            $row = mysqli_fetch_assoc($resultado);
-            $qtde = $row['quantidade'];
-            $qtde = intval($qtde) + intval($quantidade);
+            // $queryQtde = "SELECT quantidade FROM caminhoes WHERE id = '$id'";
+            // mysqli_query($conexao, $queryQtde);
+            // $resultado = mysqli_query($conexao, $queryQtde);
+            // $row = mysqli_fetch_assoc($resultado);
+            // $qtde = $row['quantidade'];
+            // $qtde = intval($qtde) + intval($quantidade);
 
             $queryInserir = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora', 
-                categoria = '$categoria', preco = '$preco', quantidade = '$qtde' WHERE modelo = '$modelo'";
+                categoria = '$categoria', preco = '$preco', quantidade = '$quantidade' WHERE modelo = '$modelo'";
             mysqli_query($conexao, $queryInserir);
             ?>
             <h2 class="subtitle level-item">Caminhão alterado com sucesso!</h2>
@@ -113,4 +119,5 @@ session_start();
     }
         ?>
 </body>
+
 </html>

@@ -83,7 +83,7 @@
             ?>
                 <h2 class="subtitle level-item">Usuário não cadastrado!</h2>
             <?php
-          }
+          } 
           else
           {
               $queryInserir = "UPDATE clientes SET email = '$email', senha = '$senha'

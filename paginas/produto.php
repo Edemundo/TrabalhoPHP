@@ -48,18 +48,22 @@
     $queryConsulta = "SELECT * FROM caminhoes";
     $resultado = mysqli_query($conexao, $queryConsulta);
     $quantidade = mysqli_num_rows($resultado);
-    for($i = 1; $i < $quantidade; $i++)
+    for($i = 1; $i < $quantidade + 1; $i++)
     {
       $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
-      $resultadoLinha = mysql_query($conexao, $queryLinha);
+      $resultadoLinha = mysqli_query($conexao, $queryLinha);
       $row = mysqli_fetch_assoc($resultadoLinha);
-      
+      echo 'oi'
         ?>
           <div class="col-sm-6">
             <div class="card" style="width: 20rem;">
-              <?phpecho '<img src="data:image/png;base64,'.base64_encode($row['imagem']]).'"/>'; ?>
+              <?php echo ("<img src=data:image/png;base64,".base64_encode($row['imagem'])."/>");   ?>
             
               <img class="card-img-top" src="data:image/jpeg;base64,"<?php base64_encode($row['imagem'])?> alt=<?php $row['modelo']?>>
+              <div class="card-block">
+          <h3 class="card-title"><?php echo($row['montadora']. " ". $row['modelo']) ?> </h3>
+          <p class="card-text">Categoria: <?php echo($row['categoria']) ?></p>
+          <p class="card-text">Preço: <?php echo($row['preco']) ?></p>
               <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
             </div>
           </div>

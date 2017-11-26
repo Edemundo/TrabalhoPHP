@@ -25,7 +25,7 @@
                     <h2 class="subtitle level-item">Alterar Usuário</h2>
                 </div>
                 <ul id="mensagens-erro"></ul>
-                <form name="cadastro" method="post" action="cadastrar.php">
+                <form name="cadastro" method="post" action="alterarUsuario.php">
                     <div class="field has-addons has-addons-centered">
                         <p class="control has-icons-left has-icons-right">
                             <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="field has-addons has-addons-centered">
                         <p class="control">
-                            <button id="btnCadastro" class="button is-success" name="btnCadastro">
+                            <button id="btnAltUser" class="button is-success" name="btnAltUser">
                                 Cadastrar
                             </button>
                         </p>
@@ -65,14 +65,14 @@
             <?php
       if(isset($_POST['btnAltUser']))		
       {		
-              //inicio da autenticação do usuário
-          include 'conexao.php';
-  
-          require_once 'conexao.php';	//inclui a conexao com o banco de dados
+            //inicio da autenticação do usuário
+            include '../php/conexao.php';
+              
+            require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
   
           //transforma tudo em string para não receber sql injection
           //e nao aceita codigo
-          $senha = trim($_POST['senha']);
+          $senha = md5(trim($_POST["senha"]));;
           $email = trim($_POST['email']);
           
           $queryConsulta = "SELECT * FROM clientes WHERE email = '$email'";
@@ -80,15 +80,18 @@
           $checarResultado = mysqli_num_rows($resultado);
           if($checarResultado < 1)
           {
-              ?>
+            ?>
                 <h2 class="subtitle level-item">Usuário não cadastrado!</h2>
-                <?php
+            <?php
           }
           else
           {
               $queryInserir = "UPDATE clientes SET email = '$email', senha = '$senha'
               WHERE email = '$email'";
               mysqli_query($conexao, $queryInserir);
+            ?>
+                <h2 class="subtitle level-item">Senha alterada com sucesso!</h2>
+            <?php
           }
       }
     ?>

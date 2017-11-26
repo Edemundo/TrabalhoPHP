@@ -28,18 +28,7 @@
     </div>
     <br>
     <br>
-  <!-- <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/1.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title"></h3>
-          <p class="card-text">Categoria: Semipesado</p>
-          <p class="card-text">Preço: R$ 150.055,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div> -->
+  
 
     <?php
     include '../php/conexao.php';
@@ -48,13 +37,11 @@
     $queryConsulta = "SELECT * FROM caminhoes";
     $resultado = mysqli_query($conexao, $queryConsulta);
     $quantidade = mysqli_num_rows($resultado);
-<<<<<<< HEAD
     for($i = 1; $i < $quantidade + 1; $i++)
     {
       $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
       $resultadoLinha = mysqli_query($conexao, $queryLinha);
       $row = mysqli_fetch_assoc($resultadoLinha);
-      echo 'oi'
         ?>
           <div class="col-sm-6">
             <div class="card" style="width: 20rem;">
@@ -67,144 +54,12 @@
           <p class="card-text">Preço: <?php echo($row['preco']) ?></p>
               <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
             </div>
-=======
-    $row = mysqli_fetch_assoc($resultado);
-
-    for($i = 1; $i <= $quantidade; $i++)
-    {
-      $queryConsultaId = "SELECT * FROM caminhoes WHERE id = '$i'";
-      $resultado = mysqli_query($conexao, $queryConsulta);
-      $quantidade = mysqli_num_rows($resultado);
-      $row = mysqli_fetch_assoc($resultado);
-      ?>
-        <div class="col-sm-6">
-          <div class="card" style="width: 20rem;">
-          
-            <img class="card-img-top" src=<?php $row['imagem']?> alt=<?php $row['modelo']?>>
-            <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
->>>>>>> 55fe82107ef3c9b8ac30127ad980ab403464d00d
           </div>
-        </div>
-      <?php
-      
-    }
+        <?php
+        
+      }
     ?>
-    <!-- <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/2.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Volks 8150</h3>
-          <p class="card-text">Categoria: Leve</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/3.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Mercedes 710</h3>
-          <p class="card-text">Categoria: Leve</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/4.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Volks 9150</h3>
-          <p class="card-text">Categoria: Leve</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/5.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Volks 13180</h3>
-          <p class="card-text">Categoria: Médio</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/6.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">FH 460	Volvo</h3>
-          <p class="card-text">Categoria: Pesado</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/7.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Mercedes Atego 2425</h3>
-          <p class="card-text">Categoria: Semipesado</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/8.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Mercedes Accelo 815</h3>
-          <p class="card-text">Categoria: Leve</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/9.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Volvo VM 260</h3>
-          <p class="card-text">Categoria: Semipesado</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/10.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Scania R440</h3>
-          <p class="card-text">Categoria: Pesado</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div> -->
+    
   <script src="../js/footer.js"></script>
 </body>
 

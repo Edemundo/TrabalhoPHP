@@ -33,7 +33,7 @@
       <div class="card" style="width: 20rem;">
         <img class="card-img-top" src="../images/1.jpg" alt="Venda Bem Caminhoneiro">
         <div class="card-block">
-          <h3 class="card-title"><?php modelo que ta no bd ?></h3>
+          <h3 class="card-title"></h3>
           <p class="card-text">Categoria: Semipesado</p>
           <p class="card-text">Preço: R$ 150.055,00</p>
           <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>

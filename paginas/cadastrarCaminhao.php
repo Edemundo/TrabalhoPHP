@@ -94,14 +94,16 @@
             mysqli_query($conexao, $queryQtde);
             $resultado = mysqli_query($conexao, $queryQtde);
             $row = mysqli_fetch_assoc($resultado);
-            $qtd = $row['quantidade'];
-            intval($qtd);
+            $qtd = intval($row['quantidade']);
+            $quantidade = intval($quantidade);
             $qtd = $quantidade + $qtd;
+            $qtd = (string)$qtd;
+            echo($qtd);
             $queryDelete = "DELETE * FROM caminhoes WHERE modelo = '$modelo'";
             mysqli_query($conexao, $queryDelete);
 
-            $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade)
-                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$qtd')";
+            $query = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora' , categoria = '$categoria', preco = '$preco', quantidade = '$qtd'";
+            echo($query);
             mysqli_query($conexao, $query);
         }
         else{
@@ -109,7 +111,7 @@
           <h2 class="subtitle level-item">Cadastrado com sucesso!</h2>
         <?php
          $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade)
-                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade')";
+                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$qtd')";
          mysqli_query($conexao, $query);
         }
       }

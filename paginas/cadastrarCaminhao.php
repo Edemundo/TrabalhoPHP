@@ -107,7 +107,7 @@
                 <h2 class="subtitle level-item">Cadastrado com sucesso!</h2>
                 <?php
          $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade, imagem)
-                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade', '$img')";
+                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade', '$img ')";
          mysqli_query($conexao, $query);
         }
       }

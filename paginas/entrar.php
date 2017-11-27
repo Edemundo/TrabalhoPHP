@@ -23,7 +23,7 @@
             <nav>
                 <div class="container">
                     <br>
-                    <h2 class="subtitle level-item">Cadastrar Produtos</h2>
+                    <h2 class="subtitle level-item">Login</h2>
                 </div>
                 <ul id="mensagens-erro"></ul>
                 <form name="cadastro" method="post" action="entrar.php">

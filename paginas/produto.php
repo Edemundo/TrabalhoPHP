@@ -1,6 +1,7 @@
 <?php
   session_start();
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -22,6 +23,20 @@
 
 <body>
   <script src="../js/header.js"></script>
+  <?php
+    if(!isset($_SESSION['email']))
+    {
+      ?>
+      <h2 class="subtitle level-item">Você não está conectado</h2>
+      <form name="cadastro" method="post" action="entrar.php">
+        <div class="field has-addons has-addons-centered">
+        <button id="btnEntrar" class="button is-success" name="btnNaoLogado"> Fazer Login Agora</button>
+        </div>
+      </form>
+       <?php 
+    }
+    else{
+      ?>
   <div class="container">
         <br>
         <h2 class="subtitle level-item">Produtos</h2>
@@ -40,7 +55,6 @@
         </div>
       </div>
     </div> -->
-
     <?php
     include '../php/conexao.php';
     
@@ -48,13 +62,11 @@
     $queryConsulta = "SELECT * FROM caminhoes";
     $resultado = mysqli_query($conexao, $queryConsulta);
     $quantidade = mysqli_num_rows($resultado);
-<<<<<<< HEAD
     for($i = 1; $i < $quantidade + 1; $i++)
     {
       $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
       $resultadoLinha = mysqli_query($conexao, $queryLinha);
       $row = mysqli_fetch_assoc($resultadoLinha);
-      echo 'oi'
         ?>
           <div class="col-sm-6">
             <div class="card" style="width: 20rem;">
@@ -67,27 +79,12 @@
           <p class="card-text">Preço: <?php echo($row['preco']) ?></p>
               <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
             </div>
-=======
-    $row = mysqli_fetch_assoc($resultado);
-
-    for($i = 1; $i <= $quantidade; $i++)
-    {
-      $queryConsultaId = "SELECT * FROM caminhoes WHERE id = '$i'";
-      $resultado = mysqli_query($conexao, $queryConsulta);
-      $quantidade = mysqli_num_rows($resultado);
-      $row = mysqli_fetch_assoc($resultado);
-      ?>
-        <div class="col-sm-6">
-          <div class="card" style="width: 20rem;">
-          
-            <img class="card-img-top" src=<?php $row['imagem']?> alt=<?php $row['modelo']?>>
-            <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
->>>>>>> 55fe82107ef3c9b8ac30127ad980ab403464d00d
           </div>
         </div>
       <?php
       
     }
+  }
     ?>
     <!-- <div class="col-sm-6">
       <div class="card" style="width: 20rem;">
@@ -207,5 +204,4 @@
   </div> -->
   <script src="../js/footer.js"></script>
 </body>
-
 </html>

@@ -1,16 +1,10 @@
 <?php
   session_start();
 ?>
-<<<<<<< HEAD
-  <!DOCTYPE html>
-  <html>
-
-=======
 
   <!DOCTYPE html>
   <html>
 
->>>>>>> 13a4d96702d49cde79d63b2c14170d6b15d69374
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,21 +18,6 @@
       crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
       crossorigin="anonymous"></script>
-<<<<<<< HEAD
-
-  </head>
-
-  <body>
-    <script src="../js/header.js"></script>
-    <div class="container">
-      <br>
-      <h2 class="subtitle level-item">Produtos</h2>
-    </div>
-    <br>
-    <br>
-
-    <?php
-=======
 
   </head>
 
@@ -77,7 +56,6 @@
       </div>
     </div> -->
       <?php
->>>>>>> 13a4d96702d49cde79d63b2c14170d6b15d69374
     include '../php/conexao.php';
     
     require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
@@ -89,32 +67,6 @@
       $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
       $resultadoLinha = mysqli_query($conexao, $queryLinha);
       $row = mysqli_fetch_assoc($resultadoLinha);
-<<<<<<< HEAD
-    ?>
-      <div class="col-sm-6">
-        <div class="card" style="width: 20rem;">
-          <?php echo ("<img src=data:image/png;base64,".base64_encode($row['imagem'])."/>");   ?>
-          <!-- um dos dois ^-v -- os dois problemas  -->
-          <img class="card-img-top" src="data:image/jpeg;base64," <?php base64_encode($row[ 'imagem'])?> alt=
-          <?php $row['modelo']?>>
-          <div class="card-block">
-            <h3 class="card-title">
-              <?php echo($row['montadora']. " ". $row['modelo']) ?> </h3>
-            <p class="card-text">Categoria:
-              <?php echo($row['categoria']) ?>
-            </p>
-            <p class="card-text">Preço:
-              <?php echo($row['preco']) ?>
-            </p>
-            <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-          </div>
-        </div>
-        <?php
-      }
-        ?>
-
-          <script src="../js/footer.js"></script>
-=======
         ?>
         <div class="col-sm-6">
           <div class="card" style="width: 20rem;">
@@ -284,7 +236,6 @@
     }
    ?>
             <script src="../js/footer.js"></script>
->>>>>>> 13a4d96702d49cde79d63b2c14170d6b15d69374
   </body>
 
   </html>

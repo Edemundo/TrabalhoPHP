@@ -94,129 +94,13 @@
       
     }
   }
+    
     ?>
-          <!-- <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/2.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Volks 8150</h3>
-          <p class="card-text">Categoria: Leve</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/3.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Mercedes 710</h3>
-          <p class="card-text">Categoria: Leve</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/4.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Volks 9150</h3>
-          <p class="card-text">Categoria: Leve</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/5.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Volks 13180</h3>
-          <p class="card-text">Categoria: Médio</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/6.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">FH 460	Volvo</h3>
-          <p class="card-text">Categoria: Pesado</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/7.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Mercedes Atego 2425</h3>
-          <p class="card-text">Categoria: Semipesado</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/8.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Mercedes Accelo 815</h3>
-          <p class="card-text">Categoria: Leve</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/9.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Volvo VM 260</h3>
-          <p class="card-text">Categoria: Semipesado</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../images/10.jpg" alt="Venda Bem Caminhoneiro">
-        <div class="card-block">
-          <h3 class="card-title">Scania R440</h3>
-          <p class="card-text">Categoria: Pesado</p>
-          <p class="card-text">Preço: R$ 81.919,00</p>
-          <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-        </div>
-      </div>
-    </div>
-  </div> -->
-          <?php
+    <?php
     if(isset($_POST["btnComprar"]) ){
       include '../php/conexao.php';
 
       require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
-
         $queryQtde = "SELECT quantidade FROM caminhoes WHERE id = '$i'";
         mysqli_query($conexao, $queryQtde);
         $resultado = mysqli_query($conexao, $queryQtde);
@@ -224,12 +108,13 @@
         $qtde = $row['quantidade'];
         if($qtde == 1)
         {
-          $sql = "DELETE FROM MyGuests WHERE id=$i";
+          $sql = "DELETE FROM caminhoes WHERE id=$i";
         }
         else{
           $qtde = intval($qtde) - 1;
-          $queryInserir = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora', 
-          categoria = '$categoria', preco = '$preco', quantidade = '$qtde' WHERE modelo = '$modelo'";
+          // $queryInserir = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora', 
+          // categoria = '$categoria', preco = '$preco', quantidade = '$qtde' WHERE modelo = '$modelo'";
+          $queryInserir = "UPDATE caminhoes SET quantidade = '$qtde' WHERE id = '$i'";
           mysqli_query($conexao, $queryInserir);
         }
 

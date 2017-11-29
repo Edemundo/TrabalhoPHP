@@ -68,8 +68,9 @@
       $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
       $resultadoLinha = mysqli_query($conexao, $queryLinha);
       $row = mysqli_fetch_assoc($resultadoLinha);
-      if($row['quantidade'] < 1)
+      if($row['quantidade'] <= 0){
         continue;
+      }
         ?>
         <div class="col-sm-6">
           <div class="card" style="width: 20rem;">
@@ -103,6 +104,9 @@
     ?>
     <?php
     if(isset($_POST["btnComprar"]) ){
+      ?>
+      <p class="card-text">Compra realizada com sucesso</p>
+      <?php
       include '../php/conexao.php';
 
       require_once '../php/conexao.php';	//inclui a conexao com o banco de dados

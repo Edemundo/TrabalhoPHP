@@ -21,6 +21,7 @@
         <div class="container">
             <br>
             <h2 class="subtitle level-item">Cadastrar Produtos</h2>
+            <br>
         </div>
         <ul id="mensagens-erro"></ul>
         <br>
@@ -81,6 +82,7 @@
         $categoria = trim($_POST["categoria"]);
         $preco = trim($_POST["preco"]);
         $quantidade = trim($_POST["qtd"]);
+        $quantidade--;
         // $img = $_POST["image"];
 
         $modelo = mysqli_real_escape_string($conexao, $modelo);
@@ -110,7 +112,7 @@
          $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade, imagem)
                      VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade', '$target ')";
          mysqli_query($conexao, $query);
-         if(move_uploaded_file($_FILES['tmp_name']['name'], $target)){
+         if(move_uploaded_file($_FILES['image']['name'], $target)){
 
          }
         }

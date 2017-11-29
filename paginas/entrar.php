@@ -60,6 +60,7 @@
                     </div>
                 </form>
                 <a class="field has-addons has-addons-centered" href="alterarUsuario.php">Esqueceu a senha? </a>
+                <a class="field has-addons has-addons-centered" href="cadastrar.php">Não tem uma conta? </a>
             </nav>
             
             <?php
@@ -83,7 +84,7 @@
                 
             </div>
             </nav>            
-        
+        <br>
         <?php
             }
         if(isset($_POST["btnEntrar"]) ){

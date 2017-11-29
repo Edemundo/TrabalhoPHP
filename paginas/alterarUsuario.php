@@ -63,6 +63,9 @@
             </p>
           </div>
         </form>
+        <br>
+        <a class="field has-addons has-addons-centered" href="cadastrar.php">Não tem uma conta? </a>
+        <br>
       </nav>
             <?php
       if(isset($_POST['btnAltUser']))		

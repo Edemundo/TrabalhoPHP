@@ -67,7 +67,7 @@
       $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
       $resultadoLinha = mysqli_query($conexao, $queryLinha);
       $row = mysqli_fetch_assoc($resultadoLinha);
-      if($row['quantidade'] == 0)
+      if($row['quantidade'] < 1)
         continue;
         ?>
         <div class="col-sm-6">
@@ -111,21 +111,11 @@
         $resultado = mysqli_query($conexao, $queryQtde);
         $row = mysqli_fetch_assoc($resultado);
         $qtde = $row['quantidade'];
-<<<<<<< HEAD
         $qtde = intval($qtde) - 1;
         // $queryInserir = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora', 
         // categoria = '$categoria', preco = '$preco', quantidade = '$qtde' WHERE modelo = '$modelo'";
         $queryInserir = "UPDATE caminhoes SET quantidade = '$qtde' WHERE id = '$produto'";
         mysqli_query($conexao, $queryInserir);
-=======
-          $qtde = intval($qtde) - 1;
-          // $queryInserir = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora', 
-          // categoria = '$categoria', preco = '$preco', quantidade = '$qtde' WHERE modelo = '$modelo'";
-          $queryInserir = "UPDATE caminhoes SET quantidade = '$qtde' WHERE id = '$produto'";
-          mysqli_query($conexao, $queryInserir);
-        }
->>>>>>> 82c2d3d1ba076cfe639ec7e7e9a378ff848018b6
-
     }
    ?>
             <script src="../js/footer.js"></script>

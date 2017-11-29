@@ -84,6 +84,7 @@
                 <?php echo($row['preco']) ?>
               </p>
               <form name="comprar" method="post" action="produto.php">
+              <?php echo("<input type=text class=invisivel value=".$i." name=produto>");?>
                 <button id="btnComprar" class="button is-success" name="btnComprar">
                   Comprar
                 </button>
@@ -101,20 +102,21 @@
       include '../php/conexao.php';
 
       require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
-        $queryQtde = "SELECT quantidade FROM caminhoes WHERE id = '$i'";
+      $produto = $_POST['produto'];
+        $queryQtde = "SELECT quantidade FROM caminhoes WHERE id = '$produto'";
         mysqli_query($conexao, $queryQtde);
         $resultado = mysqli_query($conexao, $queryQtde);
         $row = mysqli_fetch_assoc($resultado);
         $qtde = $row['quantidade'];
         if($qtde == 1)
         {
-          $sql = "DELETE FROM caminhoes WHERE id=$i";
+          $sql = "DELETE FROM caminhoes WHERE id=$produto";
         }
         else{
           $qtde = intval($qtde) - 1;
           // $queryInserir = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora', 
           // categoria = '$categoria', preco = '$preco', quantidade = '$qtde' WHERE modelo = '$modelo'";
-          $queryInserir = "UPDATE caminhoes SET quantidade = '$qtde' WHERE id = '$i'";
+          $queryInserir = "UPDATE caminhoes SET quantidade = '$qtde' WHERE id = '$produto'";
           mysqli_query($conexao, $queryInserir);
         }
 

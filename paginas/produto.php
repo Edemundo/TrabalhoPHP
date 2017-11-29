@@ -67,6 +67,8 @@
       $queryLinha = "SELECT * FROM caminhoes WHERE id = $i"; 
       $resultadoLinha = mysqli_query($conexao, $queryLinha);
       $row = mysqli_fetch_assoc($resultadoLinha);
+      if($row['quantidade'] == 0)
+        continue;
         ?>
         <div class="col-sm-6">
           <div class="card" style="width: 20rem;">
@@ -109,11 +111,6 @@
         $resultado = mysqli_query($conexao, $queryQtde);
         $row = mysqli_fetch_assoc($resultado);
         $qtde = $row['quantidade'];
-        if($qtde == 1)
-        {
-          $sql = "DELETE FROM caminhoes WHERE id=$produto";
-        }
-        else{
           $qtde = intval($qtde) - 1;
           // $queryInserir = "UPDATE caminhoes SET modelo = '$modelo', montadora = '$montadora', 
           // categoria = '$categoria', preco = '$preco', quantidade = '$qtde' WHERE modelo = '$modelo'";

@@ -27,7 +27,7 @@
         <br>
         <nav class="level">
             <div class="level-item">
-                <form id="cadastro" method="post" action="cadastrarCaminhao.php">
+                <form id="cadastro" method="post" action="cadastrarCaminhao.php" enctype="multipart/form-data">
                     <label class="label">Nome do modelo: </label>
                     <div class="control">
                         <input id="nome" class="input" type="text" placeholder="Modelo" name="modelo">
@@ -51,12 +51,10 @@
                     </div>
                     <label class="label">Imagem do caminhão: </label>
                     <div class="control">
-                    <form action="cadastrarCaminhao.php" method="post" enctype="multipart/form-data">
                         <label class="custom-file">
-                            <input type="file" id="file" class="custom-file-input" name="img">
+                            <input type="file" id="image" class="custom-file-input" name="image">
                             <span class="custom-file-control"></span>
                         </label>
-                    </form>
                     <br>
                     <br>
                     <div class="field has-addons has-addons-centered">
@@ -76,21 +74,24 @@
         include '../php/conexao.php';
 
         require_once '../php/conexao.php';	//inclui a conexao com o banco de dados
-
+        $target = "../images/".basename($_FILES["image"]["name"]);        
 
         $modelo = trim($_POST["modelo"]);
         $montadora = trim($_POST["montadora"]);
         $categoria = trim($_POST["categoria"]);
         $preco = trim($_POST["preco"]);
         $quantidade = trim($_POST["qtd"]);
-        $img = trim($_POST["img"]);
+        // $img = $_POST["image"];
 
         $modelo = mysqli_real_escape_string($conexao, $modelo);
         $montadora = mysqli_real_escape_string($conexao, $montadora);
         $categoria = mysqli_real_escape_string($conexao, $categoria);
         $preco = mysqli_real_escape_string($conexao, $preco);
         $quantidade = mysqli_real_escape_string($conexao, $quantidade);
-        $img = mysqli_real_escape_string($conexao, $img);
+        // $img = mysqli_real_escape_string($conexao, $img);
+        // $imgData = file_get_contents($img);
+
+
 
         $queryVerificar = "SELECT * FROM caminhoes WHERE modelo = '$modelo'";
         $resultado = mysqli_query($conexao, $queryVerificar);
@@ -104,11 +105,14 @@
         }
         else{
         ?>
-                <h2 class="subtitle level-item">Cadastrado com sucesso!</h2>
+                
                 <?php
          $query = "INSERT INTO caminhoes (modelo, montadora, categoria, preco, quantidade, imagem)
-                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade', '$img ')";
+                     VALUES ('$modelo', '$montadora', '$categoria', '$preco', '$quantidade', '$target ')";
          mysqli_query($conexao, $query);
+         if(move_uploaded_file($_FILES['tmp_name']['name'], $target)){
+
+         }
         }
       }
     ?>

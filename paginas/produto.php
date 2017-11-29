@@ -72,7 +72,7 @@
           <div class="card" style="width: 20rem;">
             <?php echo ("<img src=data:image/png;base64,".base64_encode($row['imagem'])."/>");   ?>
 
-            <img class="card-img-top" src="data:image/jpeg;base64," <?php base64_encode($row[ 'imagem'])?> alt=
+            <img class="card-img-top" src="data:image/jpeg;base64," <?php base64_encode($row['imagem'])?> alt=
             <?php $row['modelo']?>>
             <div class="card-block">
               <h3 class="card-title">

@@ -88,6 +88,7 @@
                 <button id="btnComprar" class="button is-success" name="btnComprar">
                   Comprar
                 </button>
+              </form>
             </div>
           </div>
         </div>

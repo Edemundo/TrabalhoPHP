@@ -13,7 +13,7 @@ document.write(`<header>
               Cadastrar
             </a>
             <a class="navbar-item" href="entrar.php">
-              Entrar
+              Entrar/Sair
             </a>
           </div>
         </div>

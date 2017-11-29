@@ -20,10 +20,15 @@
         <script src="../js/header.js"></script>
         <article>
             <!-- Form -->
+            <?php
+            if(!isset($_SESSION['email']))
+            {
+            ?>
             <nav>
                 <div class="container">
                     <br>
                     <h2 class="subtitle level-item">Login</h2>
+                    <br>
                 </div>
                 <ul id="mensagens-erro"></ul>
                 <form name="cadastro" method="post" action="entrar.php">
@@ -54,8 +59,33 @@
                         </p>
                     </div>
                 </form>
+                <a class="field has-addons has-addons-centered" href="alterarUsuario.php">Esqueceu a senha? </a>
             </nav>
+            
             <?php
+            }
+            else{
+            ?>
+            <nav>
+            <div class="container">
+                <br>
+                <h2 class="subtitle level-item">Sair</h2>
+                <br>
+                <form name="cadastro" method="post" action="entrar.php">
+                    <div class="field has-addons has-addons-centered">
+                        <p class="control">
+                            <button id="btnSair" class="button is-success" name="btnSair">
+                                Deslogar
+                            </button>
+                        </p>
+                    </div>
+                </form>
+                
+            </div>
+            </nav>            
+        
+        <?php
+            }
         if(isset($_POST["btnEntrar"]) ){
             include '../php/conexao.php';
 
@@ -98,6 +128,11 @@
                     }
                 }
             }
+        }
+
+        if(isset($_POST["btnSair"]))
+        {
+            session_destroy();
         }
         ?>
         </article>

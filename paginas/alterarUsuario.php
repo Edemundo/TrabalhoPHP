@@ -19,49 +19,50 @@
         <script src="../js/header.js"></script>
         <article>
             <!-- Form -->
+            
             <nav>
-                <div class="container">
-                    <br>
-                    <h2 class="subtitle level-item">Alterar Usuário</h2>
-                </div>
-                <ul id="mensagens-erro"></ul>
-                <form name="cadastro" method="post" action="alterarUsuario.php">
-                    <div class="field has-addons has-addons-centered">
-                        <p class="control has-icons-left has-icons-right">
-                            <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
-                            <span class="icon is-small is-left">
-                                <i class="fa fa-envelope"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fa fa-check"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="field has-addons has-addons-centered">
-                        <p class="control has-icons-left has-icons-right">
-                            <input class="input" id="senha" type="password" placeholder="Digite a senha" name="senha">
-                            <span class="icon is-small is-left">
-                                <i class="fa fa-lock"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="field has-addons has-addons-centered">
-                        <p class="control has-icons-left has-icons-right">
-                            <input class="input" id="senha_novamente" type="password" placeholder="Digite a senha novamente" name="senha_novamente">
-                            <span class="icon is-small is-left">
-                                <i class="fa fa-lock"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="field has-addons has-addons-centered">
-                        <p class="control">
-                            <button id="btnAltUser" class="button is-success" name="btnAltUser">
-                                Cadastrar
-                            </button>
-                        </p>
-                    </div>
-                </form>
-            </nav>
+        <div class="container">
+          <br>
+          <h2 class="subtitle level-item">Alterar Usuário</h2>
+        </div>
+        <ul id="mensagens-erro"></ul>
+        <form name="cadastro" method="post" action="alterarUsuario.php">
+          <div class="field has-addons has-addons-centered">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" id="email" type="email" placeholder="Digite seu email" name="email">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-check"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field has-addons has-addons-centered">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" id="senha" type="password" placeholder="Digite a senha" name="senha">
+              <span class="icon is-small is-left">
+                <i class="fa fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field has-addons has-addons-centered">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" id="senha_novamente" type="password" placeholder="Digite a senha novamente" name="senha_novamente">
+              <span class="icon is-small is-left">
+                <i class="fa fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field has-addons has-addons-centered">
+            <p class="control">
+              <button id="btnCadastro" class="button is-success" name="btnAltUser">
+                Alterar
+              </button>
+            </p>
+          </div>
+        </form>
+      </nav>
             <?php
       if(isset($_POST['btnAltUser']))		
       {		

@@ -23,6 +23,7 @@
         <div class="container">
           <br>
           <h2 class="subtitle level-item">Cadastrar Usuário</h2>
+          <br>
         </div>
         <ul id="mensagens-erro"></ul>
         <form name="cadastro" method="post" action="cadastrar.php">

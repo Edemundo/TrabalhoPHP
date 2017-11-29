@@ -22,6 +22,7 @@ session_start();
         <div class="container">
             <br>
             <h2 class="subtitle level-item">Alterar Caminhão</h2>
+            <br>
         </div>
         <ul id="mensagens-erro"></ul>
         <br>

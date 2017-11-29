@@ -24,6 +24,7 @@
         <div class="container">
           <br>
           <h2 class="subtitle level-item">Alterar Usuário</h2>
+          <br>
         </div>
         <ul id="mensagens-erro"></ul>
         <form name="cadastro" method="post" action="alterarUsuario.php">
